@@ -1,0 +1,38 @@
+﻿@model UsuarioModel
+
+@{
+    Layout = "_LayoutDeslogado";
+    ViewData["Title"] = "Login";
+}
+<div class="container-fluid ps-md-0">
+    <div class="row g-">
+        <div class="d-none d-md-flex col-md-4 col-lg-2 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-7 mx-auto">
+                            <h3 class="login-heading mb-9 ">Efetuar Login!</h3>
+
+                            <!-- Sign In Form -->
+                            <form asp-controller="Login" asp-action="Logar" method="post">
+                                <div class="mb-3">
+                                    
+                                    <input type="text" asp-for="usuario" class="form-control" id="usuario" placeholder="informe o usuario" required>
+                                    
+                                </div>
+                                <div class=" mb-3">
+                                   
+                                    <input type="password" asp-for="senha" class="form-control" id="senha" placeholder="informe a senha " required>
+                                   
+                                </div>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" >Entrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
