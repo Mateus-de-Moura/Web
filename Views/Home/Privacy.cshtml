@@ -1,7 +1,67 @@
-﻿@{
+﻿@model Contas
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 <h1>@ViewData["Title"]</h1>
 
-<h1 class="display-4">pagina 1 </h1>
-<p>Use this page to detail your site's privacy policy.</p>
+<section class="vh-100" style="background-color: #E4F0F9; border-radius: 10px; ">
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Cadastro de Cliente</div>
+
+                <div class="panel-body">
+                    <div class="form-group">
+
+                        <div class="col-md-11 control-label">
+                            <p class="help-block"><h11>*</h11> Campo Obrigatório </p>
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="Nome">Descrição <h11>*</h11></label>
+                        <div class="col-md-3">
+                            <input id="Nome" name="Descrição" placeholder="Descrição da conta a ser cadastrada" class="form-control input-md" required="" type="text">
+                        </div>
+                        <label class="col-md-2 control-label" for="Nome">Valor <h11>*</h11></label>
+                        <div class="col-md-3">
+                            <input id="Nome" name="Valor" placeholder="Valor" class="form-control input-md" required="" type="text ">
+                        </div>
+                    </div>
+
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="Nome">Vencimento <h11>*</h11></label>
+                        <div class="col-md-2">
+                            <input id="cpf" name="Venciment" placeholder="" class="form-control input-md" required="" type="date" maxlength="8" pattern="[0-9]+$">
+                        </div>
+
+                        <label class="col-md-2 control-label" for="Nome">Situação <h11>*</h11></label>
+                        <div class="col-md-2">
+                            <select required="" id="escolaridade" name="Situação" class="form-control">
+                                <option value=""></option>
+                                <option value="Analfabeto">Pago</option>
+                                <option value="Fundamental Incompleto">A vencer</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Multiple Radios (inline) -->
+                    <div class="col-md-4">
+                    </div>
+                </div>
+                <!-- Button (Double) -->
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="Cadastrar"></label>
+                    <div class="col-md-8">
+                        <button id="Cadastrar" name="Cadastrar" class="btn btn-success" type="Submit">Cadastrar</button>
+                        <button id="Cancelar" name="Cancelar" class="btn btn-danger" type="Reset">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+    </form>
+    </section>

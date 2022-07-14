@@ -1,0 +1,18 @@
+﻿@model UsuarioModel
+@{
+
+    Layout = "_LayoutDeslogado";
+}
+<form asp-controller="Login" asp-action="CadastrarUsuario" method="post">
+    <div class="form-group">
+
+        <input type="text" asp-for="usuario" class="form-control" id="usuario" placeholder="Usuario">
+
+    </div>
+    <div class="form-group">
+
+        <input type="password" asp-for="senha" class="form-control" id="senha" placeholder="Senha">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

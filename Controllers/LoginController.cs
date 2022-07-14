@@ -13,39 +13,53 @@ namespace WebTeste.Controllers
     {
         private readonly conexao _conexao;
 
-        public LoginController() 
+        public LoginController()
         {
             _conexao = new conexao();
         }
-                
+
         public IActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Logar(UsuarioModel UsuarioModel) 
+        public IActionResult Cadastro()
         {
-           var retorno =  _conexao.ConsultarUsuario(UsuarioModel.usuario, UsuarioModel.senha);
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult Logar(UsuarioModel UsuarioModel)
+        {
+            var retorno = _conexao.ConsultarUsuario(UsuarioModel.usuario, UsuarioModel.senha);
             try
             {
-                if (retorno == true )
+                if (ModelState.IsValid)
                 {
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("Aviso", "Usuario nao  permitido");
-                    return RedirectToAction("Index");
-                }              
+                    if (retorno == true)
+                    {
+                        TempData["MensagemErro"] = null;
 
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        TempData["MensagemErro"] = "Usuario nao  permitido";
+                    }
+                }
+                return View("Index");
             }
             catch (Exception ex)
             {
                 TempData["MenssagemErro"] = $"Erro ao logar {ex.Message}";
                 return RedirectToAction("Index");
-            } 
-
+            }
         }
+        [HttpPost]
+        public IActionResult CadastrarUsuario(UsuarioModel UsuarioModel) 
+        {
+            _conexao.CadastrarUsuario(UsuarioModel);
+            return View("Index");
+        }
+
     }
 }

@@ -1,28 +1,57 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<WebTeste.Models.Contas>
+    <link rel="stylesheet" href="~/css/Home.css">
 
-<div class="text-center">
-    <h1 class="display-4">pagina 1 </h1>
-    <p>Mateus de Moura Santos.</p>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                Nome
-                <br /><br />
-                
-                      <p>
 
-                          mateus de moura santos
-                      </p>
 
-            </div>
-            <div class="col">
-                Column
-            </div>
-            <div class="col">
-                Column
-            </div>
+    <section class="vh-100" style="background-color: #E4F0F9; border-radius: 10px; ">
+
+
+        <div class="" id=" titulo" align="center">
+            <h1 text-align: center"> Contas a pagar </h1><br /><br />
         </div>
-    </div>
-</div>
+        <div class="container">
+
+            <div class="">
+                <div id="descricoes" class="row" style="color:black">
+
+                    <div class="col-sm-4">
+                        DESCRIÇÃO
+                    </div>
+                    <div class="col-sm-2">
+                        VALOR
+                    </div>
+                    <div class="col-sm-3">
+                        VENCIMENTO
+                    </div>
+                    <div class="col-sm-3">
+                        SITUAÇÃO
+                    </div>
+                </div><br />
+
+                @foreach (var item in Model)
+                {
+                    <div class="row">
+                        <div class="col-sm-4 ">
+                            <p style="color:black">@item.Descricao</p>
+
+                        </div>
+                        <div class="col-sm-2 ">
+                            <p style="color:black">@item.Valor</p>
+
+                        </div>
+                        <div class="col-sm-3 ">
+                            
+                            <p style="color:black">@item.Vencimeto.</p>
+                            
+                        </div>
+                        <div class="col-sm-3">
+
+                            <p style="color:black">@item.situacao</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>  
+
+    </section>
